@@ -1,6 +1,10 @@
 // Don't change or delete this line! It waits until the DOM has loaded, then calls 
 // the start function. More info: 
 // https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
+
+
+
+
 document.addEventListener('DOMContentLoaded', start)
 
 function start () {
@@ -13,6 +17,7 @@ function bindEventListeners (dots) {
     // The first one is provided for you
     dots[i].addEventListener('contextmenu', makeGreen)
     dots[i].addEventListener('click', makeBlue);
+    dots[i].addEventListener('dblclick', hideDiv);
   }
 }
 
@@ -30,6 +35,12 @@ function makeBlue(evt) {
 }
 // CREATE FUNCTION hide HERE
 
+function hideDiv(evt) {
+  evt.target.classList.toggle('invisible');
+  updateCounts();
+}
+
+// Updates counts
 function updateCounts () {
   var totals = {
     blue: 0,
